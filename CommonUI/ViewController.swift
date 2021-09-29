@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let items = ["component", "color"]
+    let items = ["component", "color"] // list of itmes
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
