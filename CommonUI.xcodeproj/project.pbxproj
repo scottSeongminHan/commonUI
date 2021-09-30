@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		149E209F4A031F5EAD267D29 /* Pods_CommonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCBD75D3CB135DE452FABE5B /* Pods_CommonUI.framework */; };
+		F91E0FD0270575C8007314A7 /* ZFRippleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91E0FCF270575C8007314A7 /* ZFRippleButton.swift */; };
+		F91E0FD227057782007314A7 /* SMButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91E0FD127057782007314A7 /* SMButton.swift */; };
+		F91E0FD427059213007314A7 /* ComponentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91E0FD327059213007314A7 /* ComponentVC.swift */; };
 		F91FA69B2702AC7E00539BD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FA69A2702AC7E00539BD0 /* AppDelegate.swift */; };
 		F91FA69F2702AC7E00539BD0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FA69E2702AC7E00539BD0 /* ViewController.swift */; };
 		F91FA6A22702AC7E00539BD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91FA6A02702AC7E00539BD0 /* Main.storyboard */; };
@@ -41,6 +44,9 @@
 		2BB39D106336B1AE54A9EA62 /* Pods-CommonUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonUI.release.xcconfig"; path = "Target Support Files/Pods-CommonUI/Pods-CommonUI.release.xcconfig"; sourceTree = "<group>"; };
 		BCBD75D3CB135DE452FABE5B /* Pods_CommonUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC2F4635F1F71EED249B1FA4 /* Pods-CommonUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonUI.debug.xcconfig"; path = "Target Support Files/Pods-CommonUI/Pods-CommonUI.debug.xcconfig"; sourceTree = "<group>"; };
+		F91E0FCF270575C8007314A7 /* ZFRippleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFRippleButton.swift; sourceTree = "<group>"; };
+		F91E0FD127057782007314A7 /* SMButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMButton.swift; sourceTree = "<group>"; };
+		F91E0FD327059213007314A7 /* ComponentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentVC.swift; sourceTree = "<group>"; };
 		F91FA6972702AC7E00539BD0 /* CommonUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommonUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F91FA69A2702AC7E00539BD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F91FA69E2702AC7E00539BD0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -127,7 +133,10 @@
 			children = (
 				F91FA69A2702AC7E00539BD0 /* AppDelegate.swift */,
 				F91FA69E2702AC7E00539BD0 /* ViewController.swift */,
+				F91E0FD127057782007314A7 /* SMButton.swift */,
+				F91E0FD327059213007314A7 /* ComponentVC.swift */,
 				F969C61D2702E02400886C23 /* STableViewCell.swift */,
+				F91E0FCF270575C8007314A7 /* ZFRippleButton.swift */,
 				F969C61F2702E5C100886C23 /* STableViewCell.xib */,
 				F91FA6A02702AC7E00539BD0 /* Main.storyboard */,
 				F91FA6A32702AC8000539BD0 /* Assets.xcassets */,
@@ -332,7 +341,10 @@
 			files = (
 				F969C61E2702E02400886C23 /* STableViewCell.swift in Sources */,
 				F91FA69F2702AC7E00539BD0 /* ViewController.swift in Sources */,
+				F91E0FD427059213007314A7 /* ComponentVC.swift in Sources */,
 				F91FA69B2702AC7E00539BD0 /* AppDelegate.swift in Sources */,
+				F91E0FD0270575C8007314A7 /* ZFRippleButton.swift in Sources */,
+				F91E0FD227057782007314A7 /* SMButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
