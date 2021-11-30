@@ -192,7 +192,7 @@ struct largeView: View {
             Button(action: {
 
             }) {
-                Image("buttonIdleL")
+                Image("buttonLoginL")
                     .resizable()
                     .frame(width: 159, height: 159)
             }
@@ -210,15 +210,15 @@ struct mediumView: View {
             Spacer().frame(width: 16)
             VStack {
                 Spacer().frame(height: 20)
-                HStack {
+                HStack(alignment: .top) {
                     Image("imgLogo")
                         .resizable()
                         .frame(width: 52, height: 36, alignment: .leading)
-                    VStack {
+
+                    VStack(alignment: .leading, spacing: 3) {
                         Text("엘리베이터")
                             .font(.custom("SpoqaHanSans-Bold", size: 12))
                             .bold()
-                            .padding(.bottom, 1)
                         widgetState.getState()
                     }
                 }
@@ -230,12 +230,13 @@ struct mediumView: View {
             Button(action: {
                 
             }) {
-                Image("buttonIdleM")
+                Image("buttonLoginM")
                     .resizable()
                     .frame(width: 110, height: 110)
-                Spacer().frame(width: 19)
+//                Spacer().frame(width: 19)
             }
-            
+//            .padding(.trailing, 19)
+            Spacer().frame(width: 19)
         }
     
     }
@@ -247,24 +248,24 @@ struct smallView: View {
     
     var body: some View {
         VStack {
-            HStack {
+            HStack(alignment: .top) {
                 Image("imgLogo")
                     .resizable()
                     .frame(width: 52, height: 36, alignment: .leading)
-                VStack {
+                VStack(alignment: .leading, spacing: 3) {
                     Text("엘리베이터")
                         .font(.custom("SpoqaHanSans-Bold", size: 12))
                         .bold()
                     widgetState.getState()
                 }
             }
-            .padding(10)
+            .padding(0)
             Button(action: {
 
             }) {
-                Image("buttonIdleS")
+                Image("buttonLoginS")
                     .resizable()
-                    .frame(width: 80, height: 80)
+                    .frame(width: 80.0, height: 80)
             }
                 
         }
