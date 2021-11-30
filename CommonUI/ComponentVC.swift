@@ -11,6 +11,29 @@ class ComponentVC: UIViewController {
     
     @IBOutlet weak var btnCustom: UIButton!
     
+    @IBOutlet weak var btnTest: UIButton!
+    
+    
+    @IBAction func touchTextBtn(_ sender: Any) {
+        btnTest.isSelected = !btnTest.isSelected
+        if #available (iOS 15.0, *) {
+//            btnTest.backgroundColor = .white
+//            btnTest.configuration = .plain()
+            var config = btnTest.configuration
+//            config?.baseForegroundColor = .white
+            if btnTest.isSelected {
+//                config?.baseBackgroundColor = UIColor (red: 52.0/255.0, green: 190.0/255.0, blue: 190.0/255.0, alpha: 1.0)
+                config?.background.backgroundColor = UIColor (red: 52.0/255.0, green: 190.0/255.0, blue: 190.0/255.0, alpha: 1.0)
+            } else {
+//                config?.baseBackgroundColor = UIColor (red: 52.0/255.0, green: 190.0/255.0, blue: 190.0/255.0, alpha: 0.3)
+                config?.background.backgroundColor = UIColor (red: 52.0/255.0, green: 190.0/255.0, blue: 190.0/255.0, alpha: 0.3)
+            }
+            btnTest.configuration = config
+            
+        }
+        
+    }
+    
     @IBAction func touchBtn(_ sender: Any) {
         let button = sender as! UIButton
         button.isSelected = !button.isSelected

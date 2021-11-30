@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import SwiftUI
 
 class ViewController: UIViewController {
 
-    let items = ["component", "color"] // list of itmes
+    let items = ["componentVCSegue", "SwiftUIViewSegue", "mediaVCSegue"] // list of itmes
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -29,7 +30,12 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "componentVCSegue" {
             // do something...
-        }
+        } 
+    }
+    
+    @IBSegueAction func addMySwiftUIView(_ coder: NSCoder) -> UIViewController? {
+//        return UIHostingController(coder: coder, rootView: SwiftUIView())
+        return UIHostingController(coder: coder, rootView: SwiftUIView().environmentObject(CountRepo()))
     }
     
 }
@@ -49,9 +55,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = indexPath.row
         
-        if row == 0 {
-            performSegue(withIdentifier: "componentVCSegue", sender: nil)
-        }
+        performSegue(withIdentifier: items[row], sender: nil)
     }
     
 }
