@@ -188,7 +188,7 @@ struct largeView: View {
                     widgetState.getState()
                 }
             }
-            .padding(10)
+            .padding(13)
             Button(action: {
 
             }) {
@@ -208,35 +208,55 @@ struct mediumView: View {
     var body: some View {
         HStack() {
             Spacer().frame(width: 16)
-            VStack {
-                Spacer().frame(height: 20)
+            VStack(alignment: .leading) {
+                Spacer().frame(height: 16)
                 HStack(alignment: .top) {
                     Image("imgLogo")
                         .resizable()
                         .frame(width: 52, height: 36, alignment: .leading)
-
-                    VStack(alignment: .leading, spacing: 3) {
+                    
+                    VStack(alignment: .leading, spacing: 2) {
                         Text("엘리베이터")
                             .font(.custom("SpoqaHanSans-Bold", size: 12))
                             .bold()
+                        
                         widgetState.getState()
                     }
+                    .frame(height: 36)
+                    Spacer()
                 }
+                Spacer().frame(height: 14)
                 widgetState.getDescription()
                 Spacer()
             }
+            .frame(width: 160)
             
             Spacer()
-            Button(action: {
-                
-            }) {
-                Image("buttonLoginM")
-                    .resizable()
-                    .frame(width: 110, height: 110)
-//                Spacer().frame(width: 19)
+            
+            HStack(alignment: .bottom) {
+//                Spacer()
+                VStack {
+                    Button(action: {
+
+                    }) {
+                        Image("buttonLoginM")
+                            .resizable()
+                            .frame(width: 110, height: 110)
+                    }
+                }
+                Spacer()
+                VStack {
+                    Button(action: {
+
+                    }) {
+                        Image("refresh")
+                            .resizable()
+                            .frame(width: 36, height: 36)
+                    }
+                }
+//                Spacer()
             }
-//            .padding(.trailing, 19)
-            Spacer().frame(width: 19)
+            .frame(width: 129)
         }
     
     }
@@ -248,26 +268,43 @@ struct smallView: View {
     
     var body: some View {
         VStack {
+            Spacer().frame(height: 16)
             HStack(alignment: .top) {
                 Image("imgLogo")
                     .resizable()
                     .frame(width: 52, height: 36, alignment: .leading)
-                VStack(alignment: .leading, spacing: 3) {
+                
+                VStack(alignment: .leading, spacing: 2) {
                     Text("엘리베이터")
                         .font(.custom("SpoqaHanSans-Bold", size: 12))
                         .bold()
+                    
                     widgetState.getState()
                 }
+                .frame(height: 36)
             }
-            .padding(0)
-            Button(action: {
+            Spacer()
+            HStack(alignment: .bottom, spacing: 0) {
+                Spacer()
+                VStack {
+                    Button(action: {
 
-            }) {
-                Image("buttonLoginS")
-                    .resizable()
-                    .frame(width: 80.0, height: 80)
+                    }) {
+                        Image("buttonLoginS")
+                            .resizable()
+                            .frame(width: 80, height: 80)
+                    }
+                    Spacer()
+                }
+                Button(action: {
+
+                }) {
+                    Image("refresh")
+                        .resizable()
+                        .frame(width: 36, height: 36)
+                }
             }
-                
+            .frame(height: 90)
         }
     }
 }
@@ -318,8 +355,8 @@ struct newWidget: Widget {
 struct newWidget_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            newWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
-                .previewContext(WidgetPreviewContext(family: .systemSmall))
+//            newWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
+//                .previewContext(WidgetPreviewContext(family: .systemSmall))
             
             newWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
                 .previewContext(WidgetPreviewContext(family: .systemMedium))
@@ -327,5 +364,7 @@ struct newWidget_Previews: PreviewProvider {
 //            newWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
 //                .previewContext(WidgetPreviewContext(family: .systemLarge))
         }
+        .previewLayout(.device)
+        .previewDevice("iPhone 8")
     }
 }
