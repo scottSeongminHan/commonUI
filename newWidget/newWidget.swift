@@ -180,30 +180,77 @@ struct largeView: View {
     var body: some View {
         VStack {
             HStack {
-                Image("imgLogo")
-                    .resizable()
-                    .frame(width: 52, height: 36, alignment: .leading)
-                VStack {
-                    Text("엘리베이터")
-                    widgetState.getState()
+                Spacer().frame(width: 16)
+                VStack(alignment: .leading) {
+                    Spacer().frame(height: 16)
+                    HStack(alignment: .top) {
+                        Image("imgLogo")
+                            .resizable()
+                            .frame(width: 52, height: 36, alignment: .leading)
+                        
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("엘리베이터")
+                                .font(.custom("SpoqaHanSans-Bold", size: 12))
+                                .bold()
+                            
+                            widgetState.getState()
+                        }
+                        .frame(height: 36)
+                        Spacer()
+                    }
+                    Spacer().frame(height: 14)
+                    widgetState.getDescription()
+                    if widgetState == .Login {
+                        Spacer().frame(height: 8)
+                        Text("현대 엘리베이터 인증")
+                            .font(.custom("SpoqaHanSans-Regular", size: 12))
+                            .bold()
+                            .foregroundColor(Color(red: 165.0/255.0,
+                                                   green: 166.0/255.0,
+                                                   blue: 167.0/255.0))
+                    }
+                    Spacer()
+                    
                 }
-            }
-            .padding(13)
-            Button(action: {
-
-            }) {
-                Image("buttonLoginL")
-                    .resizable()
-                    .frame(width: 159, height: 159)
-            }
+                .frame(height: 112)
+                Spacer()
                 
+            }
+            .frame(minWidth: 0, maxWidth: .infinity)
+            
+            ZStack {
+                VStack {
+                    Button(action: {
+                        
+                    }) {
+                        Image("buttonLoginL")
+                            .resizable()
+                            .frame(width: 159, height: 159)
+                    }
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        
+                    }) {
+                        Image("refresh")
+                            .resizable()
+                            .frame(width: 36, height: 36)
+                    }
+                }
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottom)
+            }
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
         }
     }
+    
 }
 
 struct mediumView: View {
     var entry: Provider.Entry
     @State var widgetState: Widget14State = .Login
+    @State var isShow: Bool = false
     
     var body: some View {
         HStack() {
@@ -233,8 +280,8 @@ struct mediumView: View {
             
             Spacer()
             
-            HStack(alignment: .bottom) {
-//                Spacer()
+            HStack(spacing: -19) {
+
                 VStack {
                     Button(action: {
 
@@ -244,8 +291,9 @@ struct mediumView: View {
                             .frame(width: 110, height: 110)
                     }
                 }
-                Spacer()
+
                 VStack {
+                    Spacer()
                     Button(action: {
 
                     }) {
@@ -254,9 +302,8 @@ struct mediumView: View {
                             .frame(width: 36, height: 36)
                     }
                 }
-//                Spacer()
+
             }
-            .frame(width: 129)
         }
     
     }
@@ -265,11 +312,12 @@ struct mediumView: View {
 struct smallView: View {
     var entry: Provider.Entry
     @State var widgetState: Widget14State = .Login
-    
+    @ScaledMetric var size: CGFloat = 1.5
     var body: some View {
         VStack {
             Spacer().frame(height: 16)
             HStack(alignment: .top) {
+                Spacer().frame(width: 16)
                 Image("imgLogo")
                     .resizable()
                     .frame(width: 52, height: 36, alignment: .leading)
@@ -282,30 +330,36 @@ struct smallView: View {
                     widgetState.getState()
                 }
                 .frame(height: 36)
-            }
-            Spacer()
-            HStack(alignment: .bottom, spacing: 0) {
                 Spacer()
+            }
+            
+            Spacer()
+            ZStack {
                 VStack {
                     Button(action: {
-
+                        
                     }) {
                         Image("buttonLoginS")
                             .resizable()
-                            .frame(width: 80, height: 80)
+                            .frame(width: 80 * size, height: 80 * size)
                     }
                     Spacer()
                 }
-                Button(action: {
-
-                }) {
-                    Image("refresh")
-                        .resizable()
-                        .frame(width: 36, height: 36)
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        
+                    }) {
+                        Image("refresh")
+                            .resizable()
+                            .frame(width: 36, height: 36)
+                    }
                 }
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottom)
             }
-            .frame(height: 90)
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
         }
+        .frame(minWidth: 0, maxWidth: .infinity)
     }
 }
 
@@ -331,8 +385,8 @@ struct newWidgetEntryView : View {
 //            Text("Medium")
             mediumView(entry: entry)
         case .systemLarge:
-            Text("Large")
-            
+//            Text("Large")
+            largeView(entry: entry)
         default:
             Text("Some other WidgetFamily in the future.")
         }
@@ -355,14 +409,14 @@ struct newWidget: Widget {
 struct newWidget_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-//            newWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
-//                .previewContext(WidgetPreviewContext(family: .systemSmall))
-            
+            newWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
+                .previewContext(WidgetPreviewContext(family: .systemSmall))
+
             newWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
                 .previewContext(WidgetPreviewContext(family: .systemMedium))
-//
-//            newWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
-//                .previewContext(WidgetPreviewContext(family: .systemLarge))
+
+            newWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
+                .previewContext(WidgetPreviewContext(family: .systemLarge))
         }
         .previewLayout(.device)
         .previewDevice("iPhone 8")
